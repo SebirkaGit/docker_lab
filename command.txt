@@ -1,0 +1,20 @@
+docker --version
+cd labs/1_ContainersAndDocker/
+
+
+then don't forget to run your docker
+docker images
+docker pull hello-world
+
+
+# to show all the images again
+docker images
+
+docker run hello-world
+
+#List the containers to see that your container ran and exited successfully.
+docker ps -a
+
+#Note the CONTAINER ID from the previous output and replace the <container_id> 
+docker container rm <container_id>
+
