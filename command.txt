@@ -18,3 +18,33 @@ docker ps -a
 #Note the CONTAINER ID from the previous output and replace the <container_id> 
 docker container rm <container_id>
 
+#Run the following command to build the image
+docker build . -t myimage:v1
+
+#Now that your image is built, run it as a container with the following command:
+docker run -dp 8080:8080 myimage:v1
+explainning: 
+docker run:
+
+    This is the base command used to create and start a new container from a specified Docker image.
+
+-d:
+
+    This flag stands for "detached mode". When this flag is used, the container runs in the background and does not attach to the terminal. You can think of it as running the container in a way similar to a background process.
+
+-p 8080:8080:
+
+    This option is used to publish the container’s port to the host. The syntax is -p <host_port>:<container_port>.
+    8080:8080 means that port 8080 on the host (your local machine) is mapped to port 8080 on the container. This allows you to access the container’s application via port 8080 on your host machine.
+    The first 8080 is the port on the host, and the second 8080 is the port on the container.
+
+
+
+#curl is a command-line tool used for transferring data with URLs
+curl localhost:8080
+
+#Now to stop the container we use docker stop followed by the container id
+docker stop $(docker ps -q)
+
+#Check if the container has stopped by running the following command.
+docker ps
